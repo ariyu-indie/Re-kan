@@ -1,0 +1,41 @@
+        if (state.player.knows.some(e=>e&&e===r.id)){
+            nme = r.name
+        }
+        if (nme==="???"){
+            if (cmd.toLowerCase()==="what is your name?"||cmd==="0"){
+                state.player.knows.push(r.id)
+                send(`*${r.name}*: my name is *${r.name}*!`)
+                talkOptions(r)
+                bondWith(state.player, r)
+                return
+            }
+        }
+        if (cmd.toLowerCase()==="bye"||cmd==="0"){
+            send(`*${nme}*: bye!`)
+            return
+        } else if (cmd.toLowerCase()==="how are you?"||cmd==="1"){
+            let m = r.mood>0.5?"fine":"okay"
+            send(`*${nme}*: oh, I'm ${m}`)
+            return
+        }
+        if (cmd.toLowerCase()==="where are you from?"||cmd==="2"){
+            let h = r.home.loc
+            if (h){
+                send(`*${nme}*: I'm from ${locId(h).name}`)
+                //return
+            } else {
+                send(`*${nme}*: I don't have a home.`)
+            }
+            return
+        }
+        if (cmd.toLowerCase()==="do you have a partner?"||cmd==="3"){
+            let par = hasPartner(r)
+            if (par){
+                send(`*${nme}*: yes i do, ${look(par.person).gender==="female"?"her":"his"} name is ${look(par.person).name}`)
+            } else {
+                send(`*${nme}*: no, i do not have one.`)
+            }
+            return
+        }
+        send(`*${nme}*: i don't understand you.`)
+        return
