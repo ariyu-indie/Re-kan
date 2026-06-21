@@ -1,0 +1,172 @@
+:root{
+    --prim: #B4FBFF52;
+    --sec: #FFCF3CB0
+}
+body{
+    font-family: serif;
+    background: var(--prim);
+}
+
+#charEngine{
+    position: absolute;
+    display: none;
+}
+
+#mem{
+    border: 0px transparent;
+    background: #A517FF47;
+    box-shadow: 0 0 0 0 transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+#mapEngine{
+    position: absolute;
+    z-index: -1;
+    background: black;
+    /*display: none;*/
+}
+
+/*#secLayer{
+    background: transparent;
+}*/
+
+#bgImg{
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    left: -100%;
+    pointer-events: none;
+}
+#weatherImg{
+    position: fixed;
+    z-index: -1;
+    opacity: 1;
+    top: -10px;
+    left: 0;
+    pointer-events: none
+}
+
+div{
+    background: var(--prim);
+    /*backdrop-filter: blur(2px);*/
+    border: 1px solid var(--sec);
+    border-radius: 4px;
+    color: #323232;
+    margin: 2px;
+    box-shadow: 0 5px 10px #0000001A;
+}
+
+#chatbox{
+    height: 50vh;
+    overflow: scroll ;
+}
+
+#userType{
+    height: 30px;
+    display: flex;
+}
+
+#TypeBox{
+    width: 100%;
+    background: var(--prim);
+    border: 1px solid var(--sec);
+    color: #323232;
+    border-radius: 4px;
+    padding: 2px;
+    margin: 2px;
+}
+
+#send{
+    width: 20%;
+    margin-left: 0px;
+}
+
+.cen{
+    align-self: center;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message{
+    padding: 2px;
+    font-size: 13px;
+    /*color: #42445AED;*/
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0;
+    transition: all 0.4s ease;
+    animation: a 1s ease;
+}
+
+.float{
+    animation: b 4s ease alternate infinite;
+}
+
+@keyframes a{
+    0%
+    {
+        opacity: 0;
+        transform: translateY(5px);
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes b{
+    0%{
+        color: #FF0909;    
+    } 33.3% {
+        color: #6DFF00;
+    } 66.6% {
+        color: #0009FF;
+    } 100% {
+        color: #FF0000;
+    }
+}
+
+.bar{
+    height: 5px;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.bar-line{
+    position: absolute;
+    border-radius: 0;
+    top: -4px;
+    left: -3px;
+    width: 50%;
+    height: 200%;
+    background: green;
+}
+.bar-line-comp{
+    position: absolute;
+    border-radius: 0;
+    top: -4px;
+    left: -3px;
+    width: 50%;
+    height: 200%;
+    background: green;
+    opacity: 30%;
+}
+
+.spn{
+    font-size: 13px;
+    border: 0px solid transparent;
+    padding: 4px;
+    border-bottom: 1px solid var(--sec);
+}
+
+.sticky{
+    position: sticky;
+}
